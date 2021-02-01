@@ -4,7 +4,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from "@ngx-formly/core";
 import { FormlyJsonschema } from "@ngx-formly/core/json-schema";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
-//test
+
 @Component({
   selector: "formly-app-example",
   templateUrl: "./app.component.html"
