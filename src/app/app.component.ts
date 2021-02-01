@@ -26,7 +26,8 @@ export class AppComponent {
     "profile_validation_null",
     "profile_validation_number_in_range",
     "profile_validation_string_contains",
-    "test"
+    "step",
+    "test2"
   ];
 
   constructor(
@@ -43,7 +44,8 @@ export class AppComponent {
           this.type = type;
           this.form = new FormGroup({});
           this.options = {};
-          this.fields = [this.formlyJsonschema.toFieldConfig(schema)];
+          //this.fields = [this.formlyJsonschema.toFieldConfig(schema)];
+          this.fields = [schema];
           this.model = model;
         })
       )

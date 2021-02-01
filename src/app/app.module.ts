@@ -12,6 +12,8 @@ import { MultiSchemaTypeComponent } from "./multischema.type";
 import { NullTypeComponent } from "./null.type";
 import { MatStepperModule } from "@angular/material/stepper";
 import { FormlyFieldStepper } from "./stepper.type";
+import { FormlyFieldTabs } from "./tabs.type";
+import { MatTabsModule } from "@angular/material/tabs";
 
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
   return `should NOT have fewer than ${field.templateOptions.minItems} items`;
@@ -69,6 +71,7 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     ReactiveFormsModule,
     FormlyBootstrapModule,
     MatStepperModule,
+    MatTabsModule,
     HttpClientModule,
     MatMenuModule,
     FormlyModule.forRoot({
@@ -127,7 +130,7 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
           component: FormlyFieldStepper,
           wrappers: ["form-field"]
         },
-
+        { name: "tabs", component: FormlyFieldTabs },
         { name: "multischema", component: MultiSchemaTypeComponent }
       ]
     })
@@ -138,6 +141,7 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     ArrayTypeComponent,
     ObjectTypeComponent,
     FormlyFieldStepper,
+    FormlyFieldTabs,
     MultiSchemaTypeComponent,
     NullTypeComponent
   ]

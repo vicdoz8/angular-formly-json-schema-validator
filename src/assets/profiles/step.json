@@ -16,13 +16,7 @@
             "type": "string",
             "title": "First name"
           }
-        },
-        "templateOptions": {
-        "label": "Input",
-        "placeholder": "Placeholder",
-        "description": "Description",
-        "required": true
-      }
+        }
       },
       "step2": {
         "title": "step 2",
