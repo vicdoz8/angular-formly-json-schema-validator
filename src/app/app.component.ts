@@ -19,7 +19,8 @@ export class AppComponent {
   profiles = [
     "profile_validation_max_length",
     "profile_validation_null",
-    "profile_validation_number_in_range"
+    "profile_validation_number_in_range",
+    "profile_validation_string_contains"
   ];
 
   constructor(

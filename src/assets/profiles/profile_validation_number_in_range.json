@@ -1,7 +1,7 @@
 {
   "schema": {
     "title": "Profile validation",
-    "description": "Add / Update profile validation of max_length",
+    "description": "Add / Update profile validation of max/min value",
     "type": "object",
     "properties": {
       "name":{
@@ -17,7 +17,7 @@
         "type": "integer"
       }
     },
-    "required":["min","max"]
+    "required":["name","min","max"]
   },
   "model": {
     "max":9999,

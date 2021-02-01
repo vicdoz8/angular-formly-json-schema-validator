@@ -1,0 +1,48 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true,
+        "title": "Profile name"
+      }
+    },
+    "anyOf": [
+      {
+        "title": "String starts with pattern",
+        "properties": {
+          "start_with": {
+            "type": "string",
+            "default": "My car has the colour*",
+            "title": "Start with"
+          }
+        }
+      },
+      {
+        "title": "String contains a pattern",
+        "properties": {
+          "contains": {
+            "type": "string",
+            "default": "*has the colour*",
+            "title": "Contains"
+          }
+        }
+      },
+      {
+        "title": "String ends with pattern",
+        "properties": {
+          "end_with": {
+            "type": "string",
+            "default": "*red",
+            "title": "End with"
+          }
+        }
+      }
+    ],
+    "required": [
+      "name"
+    ]
+  },
+  "model": {}
+}
