@@ -1,0 +1,41 @@
+{
+  "schema": {
+    "title": "A registration form",
+    "type": "object",
+    "widget": {
+      "formlyConfig": {
+        "type": "stepper"
+      }
+    },
+    "properties": {
+      "step1": {
+        "title": "step 1",
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string",
+            "title": "First name"
+          }
+        },
+        "templateOptions": {
+        "label": "Input",
+        "placeholder": "Placeholder",
+        "description": "Description",
+        "required": true
+      }
+      },
+      "step2": {
+        "title": "step 2",
+        "type": "object",
+        "properties": {
+          "lastname": {
+            "type": "string",
+            "title": "Last name"
+          }
+        }
+      }
+    }
+  },
+  "model": {
+  }
+}

@@ -5,6 +5,11 @@ import { FormlyJsonschema } from "@ngx-formly/core/json-schema";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
 
+export interface StepType {
+  label: string;
+  fields: FormlyFieldConfig[];
+}
+
 @Component({
   selector: "formly-app-example",
   templateUrl: "./app.component.html"
@@ -20,7 +25,8 @@ export class AppComponent {
     "profile_validation_max_length",
     "profile_validation_null",
     "profile_validation_number_in_range",
-    "profile_validation_string_contains"
+    "profile_validation_string_contains",
+    "test"
   ];
 
   constructor(

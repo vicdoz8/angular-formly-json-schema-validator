@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule, FormlyFieldConfig } from '@ngx-formly/core';
-import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
-import { HttpClientModule } from '@angular/common/http';
-import { MatMenuModule } from '@angular/material/menu';
-import { AppComponent } from './app.component';
-import { ArrayTypeComponent } from './array.type';
-import { ObjectTypeComponent } from './object.type';
-import { MultiSchemaTypeComponent } from './multischema.type';
-import { NullTypeComponent } from './null.type';
+import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule } from "@angular/forms";
+import { FormlyModule, FormlyFieldConfig } from "@ngx-formly/core";
+import { FormlyBootstrapModule } from "@ngx-formly/bootstrap";
+import { HttpClientModule } from "@angular/common/http";
+import { MatMenuModule } from "@angular/material/menu";
+import { AppComponent } from "./app.component";
+import { ArrayTypeComponent } from "./array.type";
+import { ObjectTypeComponent } from "./object.type";
+import { MultiSchemaTypeComponent } from "./multischema.type";
+import { NullTypeComponent } from "./null.type";
+import { MatStepperModule } from "@angular/material/stepper";
+import { FormlyFieldStepper } from "./stepper.type";
 
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
   return `should NOT have fewer than ${field.templateOptions.minItems} items`;
@@ -20,11 +22,15 @@ export function maxItemsValidationMessage(err, field: FormlyFieldConfig) {
 }
 
 export function minlengthValidationMessage(err, field: FormlyFieldConfig) {
-  return `should NOT be shorter than ${field.templateOptions.minLength} characters`;
+  return `should NOT be shorter than ${
+    field.templateOptions.minLength
+  } characters`;
 }
 
 export function maxlengthValidationMessage(err, field: FormlyFieldConfig) {
-  return `should NOT be longer than ${field.templateOptions.maxLength} characters`;
+  return `should NOT be longer than ${
+    field.templateOptions.maxLength
+  } characters`;
 }
 
 export function minValidationMessage(err, field: FormlyFieldConfig) {
@@ -39,11 +45,17 @@ export function multipleOfValidationMessage(err, field: FormlyFieldConfig) {
   return `should be multiple of ${field.templateOptions.step}`;
 }
 
-export function exclusiveMinimumValidationMessage(err, field: FormlyFieldConfig) {
+export function exclusiveMinimumValidationMessage(
+  err,
+  field: FormlyFieldConfig
+) {
   return `should be > ${field.templateOptions.step}`;
 }
 
-export function exclusiveMaximumValidationMessage(err, field: FormlyFieldConfig) {
+export function exclusiveMaximumValidationMessage(
+  err,
+  field: FormlyFieldConfig
+) {
   return `should be < ${field.templateOptions.step}`;
 }
 
@@ -56,64 +68,81 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormlyBootstrapModule,
+    MatStepperModule,
     HttpClientModule,
     MatMenuModule,
     FormlyModule.forRoot({
       validationMessages: [
-        { name: 'required', message: 'This field is required' },
-        { name: 'null', message: 'should be null' },
-        { name: 'minlength', message: minlengthValidationMessage },
-        { name: 'maxlength', message: maxlengthValidationMessage },
-        { name: 'min', message: minValidationMessage },
-        { name: 'max', message: maxValidationMessage },
-        { name: 'multipleOf', message: multipleOfValidationMessage },
-        { name: 'exclusiveMinimum', message: exclusiveMinimumValidationMessage },
-        { name: 'exclusiveMaximum', message: exclusiveMaximumValidationMessage },
-        { name: 'minItems', message: minItemsValidationMessage },
-        { name: 'maxItems', message: maxItemsValidationMessage },
-        { name: 'uniqueItems', message: 'should NOT have duplicate items' },
-        { name: 'const', message: constValidationMessage },
+        { name: "required", message: "This field is required" },
+        { name: "null", message: "should be null" },
+        { name: "minlength", message: minlengthValidationMessage },
+        { name: "maxlength", message: maxlengthValidationMessage },
+        { name: "min", message: minValidationMessage },
+        { name: "max", message: maxValidationMessage },
+        { name: "multipleOf", message: multipleOfValidationMessage },
+        {
+          name: "exclusiveMinimum",
+          message: exclusiveMinimumValidationMessage
+        },
+        {
+          name: "exclusiveMaximum",
+          message: exclusiveMaximumValidationMessage
+        },
+        { name: "minItems", message: minItemsValidationMessage },
+        { name: "maxItems", message: maxItemsValidationMessage },
+        { name: "uniqueItems", message: "should NOT have duplicate items" },
+        { name: "const", message: constValidationMessage }
       ],
       types: [
-        { name: 'string', extends: 'input' },
+        { name: "string", extends: "input" },
         {
-          name: 'number',
-          extends: 'input',
+          name: "number",
+          extends: "input",
           defaultOptions: {
             templateOptions: {
-              type: 'number',
-            },
-          },
+              type: "number"
+            }
+          }
         },
         {
-          name: 'integer',
-          extends: 'input',
+          name: "integer",
+          extends: "input",
           defaultOptions: {
             templateOptions: {
-              type: 'number',
-            },
-          },
+              type: "number"
+            }
+          }
         },
-        { name: 'boolean', extends: 'checkbox' },
-        { name: 'enum', extends: 'select' },
-        { name: 'null', component: NullTypeComponent, wrappers: ['form-field'] },
-        { name: 'array', component: ArrayTypeComponent },
-        { name: 'object', component: ObjectTypeComponent },
-        { name: 'multischema', component: MultiSchemaTypeComponent },
-      ],
-    }),
+        { name: "boolean", extends: "checkbox" },
+        { name: "enum", extends: "select" },
+        {
+          name: "null",
+          component: NullTypeComponent,
+          wrappers: ["form-field"]
+        },
+        { name: "array", component: ArrayTypeComponent },
+        { name: "object", component: ObjectTypeComponent },
+        {
+          name: "stepper",
+          component: FormlyFieldStepper,
+          wrappers: ["form-field"]
+        },
+
+        { name: "multischema", component: MultiSchemaTypeComponent }
+      ]
+    })
   ],
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     ArrayTypeComponent,
     ObjectTypeComponent,
+    FormlyFieldStepper,
     MultiSchemaTypeComponent,
-    NullTypeComponent,
-  ],
+    NullTypeComponent
+  ]
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /**  Copyright 2018 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
