@@ -10,10 +10,6 @@
       "name":{
         "type":"string",
         "title":"Profile name"
-      },
-      "max_length": {
-        "type": "integer",
-        "title": "Is Null"
       }
     }
   },
