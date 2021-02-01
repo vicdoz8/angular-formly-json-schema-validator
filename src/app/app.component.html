@@ -1,0 +1,16 @@
+<div class="mat-h2">Profiles<div>
+		<div style="margin-bottom: 20px;">
+			<button *ngFor="let profile of profiles"
+  (click)="loadProfile(profile)"
+  class="btn" [class.btn-primary]="type === profile">
+    {{ profile }}
+    </button>
+		</div>
+	</div>
+
+	<div class="border">
+		<form [formGroup]="form" (ngSubmit)="submit()" *ngIf="fields">
+			<formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+			<button type="submit" class="btn btn-primary submit-button" [disabled]="!form.valid">Save</button>
+		</form>
+	</div>

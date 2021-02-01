@@ -1,0 +1,25 @@
+{
+  "schema": {
+    "title": "Profile validation",
+    "description": "Add / Update profile validation of max_length",
+    "type": "object",
+    "required": [
+      "max_length"
+    ],
+    "properties": {
+      "name":{
+        "type":"string",
+        "title":"Profile name"
+      },
+      "max_length": {
+        "title": "Max length",
+        "type": "integer",
+        "minimum": 1
+
+      }
+    }
+  },
+  "model": {
+    "max_length":1
+  }
+}

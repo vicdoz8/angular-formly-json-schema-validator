@@ -1,0 +1,23 @@
+{
+  "schema": {
+    "title": "Profile validation",
+    "description": "Add / Update profile validation of empty value",
+    "type": "object",
+    "required": [
+      "max_length"
+    ],
+    "properties": {
+      "name":{
+        "type":"string",
+        "title":"Profile name"
+      },
+      "max_length": {
+        "type": "integer",
+        "title": "Is Null"
+      }
+    }
+  },
+  "model": {
+    
+  }
+}
