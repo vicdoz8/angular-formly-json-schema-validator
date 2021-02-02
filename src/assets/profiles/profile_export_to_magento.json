@@ -1,5 +1,5 @@
 {
-  "schema":[
+  "schema": [
     {
       "className": "section-label",
       "template": "<h4>Create/Update profile to Export to Magento2</h4>"
@@ -7,29 +7,36 @@
     {
       "fieldGroupClassName": "row",
       "fieldGroup": [
-      {
-        "key": "profile_name",
-        "type": "input",
-        "className": "col-md-6",
-        "templateOptions": {
-          "label": "Profile Name",
-          "required": true
+        {
+          "key": "profile_name",
+          "type": "input",
+          "className": "col-md-6",
+          "templateOptions": {
+            "label": "Profile Name",
+            "required": true
+          }
         }
-      }
-    ]},
-
-    
- {
+      ]
+    },
+    {
       "key": "views_to_export",
       "type": "select",
       "templateOptions": {
         "label": "Select the views to export",
-         "multiple": true,
+        "multiple": true,
         "options": [
-          { "value": "es_es", "label": "Spain" },
-          { "value": "fr_fr", "label": "France" },
-           { "value": "en_en", "label": "UK" }
-
+          {
+            "value": "es_es",
+            "label": "Spain"
+          },
+          {
+            "value": "fr_fr",
+            "label": "France"
+          },
+          {
+            "value": "en_en",
+            "label": "UK"
+          }
         ]
       }
     },
@@ -39,14 +46,22 @@
       "templateOptions": {
         "label": "Select the default view",
         "options": [
-          { "value": "es_es", "label": "Spain" },
-          { "value": "fr_fr", "label": "France" },
-           { "value": "en_en", "label": "UK" }
-
+          {
+            "value": "es_es",
+            "label": "Spain"
+          },
+          {
+            "value": "fr_fr",
+            "label": "France"
+          },
+          {
+            "value": "en_en",
+            "label": "UK"
+          }
         ]
       }
     },
-          {
+    {
       "className": "section-label",
       "template": "<h5>Mapping to export the views by website</h5>"
     },
@@ -54,53 +69,79 @@
       "key": "mapping-view-website",
       "type": "datatable",
       "templateOptions": {
+
         "columns": [
-          { "name": "View", "prop": "view" },
-          { "name": "Website", "prop": "website" }
+          {
+            "name": "View",
+            "prop": "view"
+          },
+          {
+            "name": "Website",
+            "prop": "website"
+          }
         ]
       },
       "fieldArray": {
         "fieldGroup": [
-{
-      "key": "view",
-      "type": "select",
-      "templateOptions": {
-        "options": [
-          { "id": "es_es", "name": "Spain" },
-          { "id": "fr_fr", "name": "France" },
-           { "id": "en_en", "name": "UK" }
-
-        ],
-        "valueProp": "id",
-        "labelProp": "name"
-      }
-    },
+          {
+            "key": "view",
+            "type": "select",
+            "templateOptions": {
+              "options": [
+                {
+                  "id": "es_es",
+                  "name": "Spain"
+                },
+                {
+                  "id": "fr_fr",
+                  "name": "France"
+                },
+                {
+                  "id": "en_en",
+                  "name": "UK"
+                }
+              ],
+              "valueProp": "id",
+              "labelProp": "name"
+            }
+          },
           {
             "type": "input",
             "key": "website",
             "templateOptions": {
               "type": "string",
-                "required": true
+              "required": true
             }
           }
         ]
       }
+    },
+     {
+      "key": "export_images",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "Do you want to export images?",
+        "required": true
+
+      }
     }
   ],
-  "model":{
-      "profile_name": "Export of published products",
-      "mapping-view-website": [
-        {
-          "view": "es_es",
-          "website": "Website ES"        },
-        {
-          "view": "fr_fr",
-          "website": "Website FR"        },
-        {
-          "view": "en_en",
-          "website": "Website EN"
-        }
-      ]
-    }
-  
+  "model": {
+    "export_images":false,
+    "profile_name": "Export of published products",
+    "mapping-view-website": [
+      {
+        "view": "es_es",
+        "website": "Website ES"
+      },
+      {
+        "view": "fr_fr",
+        "website": "Website FR"
+      },
+      {
+        "view": "en_en",
+        "website": "Website EN"
+      }
+    ]
+  }
 }

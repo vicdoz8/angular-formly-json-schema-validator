@@ -16,6 +16,7 @@ import { FormlyFieldTabs } from "./tabs.type";
 import { MatTabsModule } from "@angular/material/tabs";
 import { DatatableTypeComponent } from "./datatable.type";
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
+import { RepeatTypeComponent } from "./repeat-section.type";
 
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
   return `should NOT have fewer than ${field.templateOptions.minItems} items`;
@@ -149,7 +150,8 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
           }
         },
         { name: "tabs", component: FormlyFieldTabs },
-        { name: "multischema", component: MultiSchemaTypeComponent }
+        { name: "multischema", component: MultiSchemaTypeComponent },
+        { name: "repeat", component: RepeatTypeComponent }
       ]
     })
   ],
@@ -162,7 +164,8 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     FormlyFieldTabs,
     MultiSchemaTypeComponent,
     DatatableTypeComponent,
-    NullTypeComponent
+    NullTypeComponent,
+    RepeatTypeComponent
   ]
 })
 export class AppModule {}
