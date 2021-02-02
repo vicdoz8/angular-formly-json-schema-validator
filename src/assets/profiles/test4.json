@@ -19,21 +19,31 @@
     ]},
 
     
-        {
-      "className": "section-label",
-      "template": "<h5>Select the default view</h5>"
+ {
+      "key": "views_to_export",
+      "type": "select",
+      "templateOptions": {
+        "label": "Select the views to export",
+         "multiple": true,
+        "options": [
+          { "value": "es_es", "label": "Spain" },
+          { "value": "fr_fr", "label": "France" },
+           { "value": "en_en", "label": "UK" }
+
+        ]
+      }
     },
     {
       "key": "default_view",
       "type": "select",
       "templateOptions": {
-        "label": "Normal Select",
+        "label": "Select the default view",
         "options": [
-          { "id": "es_es", "name": "Spain" },
-          { "id": "fr_fr", "name": "France" },
-           { "id": "en_en", "name": "UK" }
+          { "value": "es_es", "label": "Spain" },
+          { "value": "fr_fr", "label": "France" },
+           { "value": "en_en", "label": "UK" }
 
-        ],
+        ]
       }
     },
           {
