@@ -29,7 +29,7 @@ export class AppComponent {
     "step",
     "test2",
     "test3",
-    "test4"
+    "profile_export_to_magento"
   ];
 
   constructor(
