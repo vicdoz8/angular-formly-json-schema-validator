@@ -2,13 +2,13 @@
   "schema":[
     {
       "className": "section-label",
-      "template": "<h5>Export data</h5>"
+      "template": "<h4>Create/Update profile to Export to Magento2</h4>"
     },
     {
       "fieldGroupClassName": "row",
       "fieldGroup": [
       {
-        "key": "name",
+        "key": "profile_name",
         "type": "input",
         "className": "col-md-6",
         "templateOptions": {
@@ -17,6 +17,29 @@
         }
       }
     ]},
+
+    
+        {
+      "className": "section-label",
+      "template": "<h5>Select the default view</h5>"
+    },
+    {
+      "key": "default_view",
+      "type": "select",
+      "templateOptions": {
+        "label": "Normal Select",
+        "options": [
+          { "id": "es_es", "name": "Spain" },
+          { "id": "fr_fr", "name": "France" },
+           { "id": "en_en", "name": "UK" }
+
+        ],
+      }
+    },
+          {
+      "className": "section-label",
+      "template": "<h5>Mapping to export the views by website</h5>"
+    },
     {
       "key": "mapping-view-website",
       "type": "datatable",
@@ -28,18 +51,24 @@
       },
       "fieldArray": {
         "fieldGroup": [
-          {
-            "type": "input",
-            "key": "view",
-            "templateOptions": {
-              "required": true
-            }
-          },
+{
+      "key": "view",
+      "type": "select",
+      "templateOptions": {
+        "options": [
+          { "id": "es_es", "name": "Spain" },
+          { "id": "fr_fr", "name": "France" },
+           { "id": "en_en", "name": "UK" }
+
+        ],
+        "valueProp": "id",
+        "labelProp": "name"
+      }
+    },
           {
             "type": "input",
             "key": "website",
             "templateOptions": {
-                  
               "type": "string",
                 "required": true
             }
@@ -49,8 +78,7 @@
     }
   ],
   "model":{
-    
-      "name": "name1",
+      "profile_name": "Export of published products",
       "mapping-view-website": [
         {
           "view": "es_es",
@@ -59,9 +87,9 @@
           "view": "fr_fr",
           "website": "Website FR"        },
         {
-          "view": "de_de",
-          "website": "Website DE"
-                  }
+          "view": "en_en",
+          "website": "Website EN"
+        }
       ]
     }
   
