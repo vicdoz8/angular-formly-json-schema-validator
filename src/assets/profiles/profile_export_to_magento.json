@@ -40,6 +40,7 @@
         ]
       }
     },
+    
     {
       "key": "default_view",
       "type": "select",
@@ -116,18 +117,37 @@
         ]
       }
     },
+        {
+      "className": "section-label",
+      "template": "<h5>Advanced settings</h5>"
+    },
      {
       "key": "export_images",
       "type": "checkbox",
       "templateOptions": {
-        "label": "Do you want to export images?",
-        "required": true
+        "label": "Do you want to export images?"
+      }
+    },
 
+     {
+      "key": "export_categories",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "Do you want to export categories?"
+      }
+    },
+         {
+      "key": "export_relations",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "Do you want to export relations of products?"
       }
     }
   ],
   "model": {
     "export_images":false,
+        "export_categories":false,
+        "export_relations":false,
     "profile_name": "Export of published products",
     "mapping-view-website": [
       {
