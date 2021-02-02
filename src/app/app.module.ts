@@ -14,6 +14,8 @@ import { MatStepperModule } from "@angular/material/stepper";
 import { FormlyFieldStepper } from "./stepper.type";
 import { FormlyFieldTabs } from "./tabs.type";
 import { MatTabsModule } from "@angular/material/tabs";
+import { DatatableTypeComponent } from "./datatable.type";
+import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 
 export function minItemsValidationMessage(err, field: FormlyFieldConfig) {
   return `should NOT have fewer than ${field.templateOptions.minItems} items`;
@@ -74,6 +76,7 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     MatTabsModule,
     HttpClientModule,
     MatMenuModule,
+    NgxDatatableModule,
     FormlyModule.forRoot({
       validationMessages: [
         { name: "required", message: "This field is required" },
@@ -130,6 +133,21 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
           component: FormlyFieldStepper,
           wrappers: ["form-field"]
         },
+        {
+          name: "datatable",
+          component: DatatableTypeComponent,
+          defaultOptions: {
+            templateOptions: {
+              columnMode: "force",
+              rowHeight: "auto",
+              headerHeight: "40",
+              footerHeight: "40",
+              limit: "10",
+              scrollbarH: "true",
+              reorderable: "reorderable"
+            }
+          }
+        },
         { name: "tabs", component: FormlyFieldTabs },
         { name: "multischema", component: MultiSchemaTypeComponent }
       ]
@@ -143,6 +161,7 @@ export function constValidationMessage(err, field: FormlyFieldConfig) {
     FormlyFieldStepper,
     FormlyFieldTabs,
     MultiSchemaTypeComponent,
+    DatatableTypeComponent,
     NullTypeComponent
   ]
 })

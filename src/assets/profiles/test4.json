@@ -1,0 +1,68 @@
+{
+  "schema":[
+    {
+      "className": "section-label",
+      "template": "<h5>Export data</h5>"
+    },
+    {
+      "fieldGroupClassName": "row",
+      "fieldGroup": [
+      {
+        "key": "name",
+        "type": "input",
+        "className": "col-md-6",
+        "templateOptions": {
+          "label": "Profile Name",
+          "required": true
+        }
+      }
+    ]},
+    {
+      "key": "mapping-view-website",
+      "type": "datatable",
+      "templateOptions": {
+        "columns": [
+          { "name": "View", "prop": "view" },
+          { "name": "Website", "prop": "website" }
+        ]
+      },
+      "fieldArray": {
+        "fieldGroup": [
+          {
+            "type": "input",
+            "key": "view",
+            "templateOptions": {
+              "required": true
+            }
+          },
+          {
+            "type": "input",
+            "key": "website",
+            "templateOptions": {
+                  
+              "type": "string",
+                "required": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "model":{
+    
+      "name": "name1",
+      "mapping-view-website": [
+        {
+          "view": "es_es",
+          "website": "Website ES"        },
+        {
+          "view": "fr_fr",
+          "website": "Website FR"        },
+        {
+          "view": "de_de",
+          "website": "Website DE"
+                  }
+      ]
+    }
+  
+}
